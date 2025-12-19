@@ -21,7 +21,7 @@ jobs:
           cache: 'npm'
 
       - name: 📦 Installer les dépendances
-        run: npm install
+        run: npm ci
 
       - name: 🔍 Vérifier la qualité (Linter)
         run: npm run lint || echo "Linter a trouvé des erreurs, mais on continue"
