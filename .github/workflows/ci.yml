@@ -11,20 +11,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout code
-        uses: actions/checkout@v4 # Version 4 est plus stable
+      - name: 📥 Récupérer le code
+        uses: actions/checkout@v4
 
-      - name: 🟢 Setup Node
-        uses: actions/setup-node@v4 # Version 4
+      - name: 🟢 Configurer Node
+        uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: 'npm' # Ajoute du cache pour accélérer l'installation
+          cache: 'npm'
 
-      - name: 📦 Install dependencies
+      - name: 📦 Installer les dépendances
         run: npm install
 
-      - name: 🔍 Run Linter
-        run: npm run lint || echo "Linter failed but continuing..."
+      - name: 🔍 Vérifier la qualité (Linter)
+        run: npm run lint || echo "Linter a trouvé des erreurs, mais on continue"
 
-      - name: 🧪 Run Tests
+      - name: 🧪 Lancer les tests
         run: npm test
